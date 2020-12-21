@@ -77,7 +77,7 @@ class UserBlock extends Component {
 						>
 							<div className="user-profile">
 								<img
-									src={userInfo.imageUrl || require('Assets/img/halogen/shola.jpg')}
+									src={userInfo.imageUrl || require('Assets/avatars/profile.jpg')}
 									alt="user profile"
 									className="img-fluid rounded-circle"
 									width="50"
@@ -106,19 +106,19 @@ class UserBlock extends Component {
 								</li>
 								<li>
 									<Link to={{
-										pathname: '/app/users/user-profile-1',
-										state: { activeTab: 2 }
+										pathname: '#',
+										state: { activeTab: 0 }
 									}}>
 										<i className="zmdi zmdi-comment-text-alt text-success mr-3"></i>
 										<span><IntlMessages id="widgets.messages" /></span>
-										<Badge color="danger" className="pull-right">3</Badge>
+										<Badge color="danger" className="pull-right"></Badge>
 									</Link>
 								</li>
 								<li>
-									<Link to="/app/pages/feedback">
+									<Link to="#">
 										<i className="zmdi zmdi-edit text-warning mr-3"></i>
 										<span><IntlMessages id="sidebar.feedback" /></span>
-										<Badge color="info" className="pull-right">1</Badge>
+										<Badge color="info" className="pull-right"></Badge>
 									</Link>
 								</li>
 								<li className="border-top">

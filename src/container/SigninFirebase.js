@@ -1,7 +1,7 @@
 /**
  * Signin Firebase
  */
-import "../styles/LoginPageCustomStyles.scss";
+import "./styles//LoginPageCustomStyles.scss";
 import React, { Component } from "react";
 import Hidden from "@material-ui/core/Hidden";
 import { connect } from "react-redux";
@@ -13,7 +13,8 @@ import { Form, FormGroup, Input } from "reactstrap";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import QueueAnim from "rc-queue-anim";
 import { Fab } from "@material-ui/core";
-import HaloBizImage from "../assets/img/halogen/HALOBIZ PNG.png";
+import Logo from "../assets/img/halogen/halogen_white.png";
+import HaloBiz from "../assets/img/halogen/HALOBIZ PNG.png";
 
 // app config
 import AppConfig from "Constants/AppConfig";
@@ -64,115 +65,81 @@ class Signin extends Component {
     const { loading } = this.props;
     return (
       <QueueAnim type="bottom" duration={2000}>
-        <div className="rct-session-wrapper">
-          {loading && <LinearProgress />}
-          <AppBar position="static" className="session-header">
-            <Toolbar>
-              <div className="container">
-                <div className="d-flex justify-content-between">
-                  <div className="session-logo">
-                    <Link to="/">
-                      <img
-                        src={AppConfig.appGoldLogo}
-                        alt="session-logo"
-                        className="img-fluid"
-                        width="100"
-                        height="100"
-                      />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </Toolbar>
-          </AppBar>
-          <div className="session-inner-wrapper">
-            <div className="container">
-              <div className="row row-eq-height">
-                <Hidden only={["xs"]}>
-                  <div className=" col-md-7 col-lg-8">
-                    <img
-                      src={HaloBizImage}
-                      alt="session-slider"
-                      className=""
-                      width="100%"
-                      height="480"
-                    />
-                  </div>
-                </Hidden>
+        {loading && <LinearProgress />}
+        <div className="login-page">
+        <div className="container">
 
-                <div className="col-sm-8 col-md-5 col-lg-4">
-                  <div className="session-body text-center my-form-padding">
-                    <div className="session-head mb-30">
-                      <img
-                        src={AppConfig.appLogo}
-                        alt="session-logo"
-                        className="img-fluid"
-                        width="100"
-                        height="100"
-                      />
-                    </div>
-                    <Form>
-                      <FormGroup className="has-wrapper">
-                        <Input
-                          type="mail"
-                          value={email}
-                          name="user-mail"
-                          id="user-mail"
-                          className="has-input input-lg"
-                          placeholder="Enter Email Address"
-                          onChange={(event) =>
-                            this.setState({ email: event.target.value })
-                          }
-                        />
-                        <span className="has-icon">
-                          <i className="ti-email"></i>
-                        </span>
-                      </FormGroup>
-                      <FormGroup className="has-wrapper">
-                        <Input
-                          value={password}
-                          type="Password"
-                          name="user-pwd"
-                          id="pwd"
-                          className="has-input input-lg"
-                          placeholder="Password"
-                          onChange={(event) =>
-                            this.setState({ password: event.target.value })
-                          }
-                        />
-                        <span className="has-icon">
-                          <i className="ti-lock"></i>
-                        </span>
-                      </FormGroup>
-                      <FormGroup className="mb-15">
-                        <Button
-                          color="primary"
-                          className="btn-block text-white w-100"
-                          variant="contained"
-                          size="large"
-                          onClick={() => this.onUserLogin()}
-                        >
-                          Sign In
-                        </Button>
-                      </FormGroup>
-                    </Form>
-                    <p className="mb-20">or sign in with G-Suit Account</p>
-
-                    <Fab
-                      size="small"
-                      variant="round"
-                      className="btn-google mr-15 mb-20 text-white"
-                      onClick={() =>
-                        this.props.signinUserWithGoogle(this.props.history)
-                      }
-                    >
-                      <i className="zmdi zmdi-google"></i>
-                    </Fab>
-                  </div>
-                </div>
-              </div>
+        
+          <div className="left-section">
+            <Form>
+            <div className="logo-container">
+                  <img src={Logo} alt="" className="login-logo"/>
             </div>
+              <FormGroup className="has-wrapper mb-3">
+                <Input
+                  type="mail"
+                  value={email}
+                  name="user-mail"
+                  id="user-mail"
+                  className="has-input input-lg "
+                  placeholder="Enter Email Address"
+                  onChange={(event) =>
+                    this.setState({ email: event.target.value })
+                  }
+                />
+                <span className="has-icon">
+                  <i className="ti-email"></i>
+                </span>
+              </FormGroup>
+              <FormGroup className="has-wrapper mb-3">
+                <Input
+                  value={password}
+                  type="Password"
+                  name="user-pwd"
+                  id="pwd"
+                  className="has-input input-lg"
+                  placeholder="Password"
+                  onChange={(event) =>
+                    this.setState({ password: event.target.value })
+                  }
+                />
+                <span className="has-icon">
+                  <i className="ti-lock"></i>
+                </span>
+              </FormGroup>
+              <FormGroup className="mb-15">
+                <Button
+                  color="primary"
+                  className="btn-block text-white w-100"
+                  variant="contained"
+                  size="large"
+                  onClick={() => this.onUserLogin()}
+                >
+                  Sign In
+                </Button>
+              </FormGroup>
+            </Form>
+            <div className="form-bottom">
+            <p className="mb-20">or sign in with G-Suit Account</p>
+
+                <Fab
+                  size="small"
+                  variant="round"
+                  className="btn-google mr-15 mb-20 text-white"
+                  onClick={() =>
+                    this.props.signinUserWithGoogle(this.props.history)
+                  }
+                >
+  <i className="zmdi zmdi-google"></i>
+</Fab>
+            </div>
+            
           </div>
+
+          <div className="right-section">
+              <img className="" src={HaloBiz} alt=""/>
+          </div>
+        </div>
         </div>
       </QueueAnim>
     );

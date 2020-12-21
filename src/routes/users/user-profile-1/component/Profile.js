@@ -41,6 +41,13 @@ class Profile extends Component {
     this.checkMimeType = this.checkMimeType.bind(this);
   }
 
+  componentDidMount(props){
+    this.setState({
+      mobileNumber: this.props.userInfo.mobileNumber,
+      
+    })
+  }
+
   handleChange = ({ target }) => {
    const { name, value } = target;
    this.setState({
@@ -169,7 +176,7 @@ class Profile extends Component {
     return (
       <div className="profile-wrapper w-50">
         <h2 className="heading">
-          <IntlMessages id="widgets.personalDetails" />
+          User Profile
         </h2>
         <Form >
           <FormGroup row>

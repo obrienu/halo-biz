@@ -16,10 +16,11 @@ const Dashboard = ({ match }) => (
    <div className="dashboard-wrapper">
       <Switch>
          <Redirect exact from={`${match.url}/`} to={`${match.url}/ecommerce`} />
-         <Route path={`${match.url}/ecommerce`} component={AsyncEcommerceDashboardComponent} />
+         <Route path={`${match.url}/ecommerce`} component={""}/>
+         {/* <Route path={`${match.url}/ecommerce`} component={AsyncEcommerceDashboardComponent} />
          <Route path={`${match.url}/saas`} component={AsyncSaasDashboardComponent} />
          <Route path={`${match.url}/agency`} component={AsyncAgencyDashboardComponent} />
-         <Route path={`${match.url}/news`} component={AsyncNewsDashboardComponent} />
+         <Route path={`${match.url}/news`} component={AsyncNewsDashboardComponent} /> */}
       </Switch>
    </div>
 );

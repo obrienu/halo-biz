@@ -203,63 +203,6 @@ export default class Messages extends Component {
                   </InputGroup>
                </div>
             </div>
-            <ul className="msg-list list-unstyled ie-flex">
-               <li className="d-flex justify-content-between align-items-center">
-                  <div className="toolbar">
-                     <FormControlLabel
-                        control={
-                           <Checkbox
-                              checked={this.state.jason}
-                              color="primary"
-                              onChange={this.handleChange('all')}
-                              value="all"
-                           />
-                        }
-                     />
-                     <IconButton onClick={() => this.onReloadMessages()} className="btn-outline-default">
-                        <i className="ti-reload"></i>
-                     </IconButton>
-                  </div>
-                  <span className="fs-14">1-50 of 234</span>
-               </li>
-               {messages && messages.map((data, key) => (
-                  <li className="clearfix d-flex" key={key}>
-                     <Checkbox
-                        checked={data.select}
-                        className="pull-left"
-                        color="primary"
-                        onClick={() => this.onSelectMessage(key)}
-                     />
-                     <IconButton className={classnames("pull-left mr-15", { 'text-warning': data.starred })} onClick={() => this.markMessageAsStar(key)}>
-                        <i className="ti-star"></i>
-                     </IconButton>
-                     <div className="media pull-left">
-                        {data.userAvatar !== '' ?
-                           <img src={data.userAvatar} alt="user prof" className="rounded-circle mr-15" width="50" height="50" />
-                           : <Avatar className="mr-15">{data.userName.charAt(0)}</Avatar>
-                        }
-                        <div className="media-body">
-                           <h5>{data.userName}</h5>
-                           <p className="text-muted">{data.message}</p>
-                           <div className="mb-10">
-                              <Button className="btn-default mr-10 btn-xs" onClick={() => this.onReplyMessage(key)}>
-                                 <i className="ti-back-right mr-10"></i> Reply
-                    </Button>
-                              <Button className="btn-default btn-xs" onClick={() => this.viewMessage(data)}>
-                                 <i className="ti-eye mr-10"></i> Read
-                    </Button>
-                           </div>
-                           {data.replyBox &&
-                              <InputGroup className="w-75">
-                                 <Input className="mr-20" />
-                                 <Button color="primary" className="text-white" variant="contained" onClick={() => this.sendReply(key)}>Send</Button>
-                              </InputGroup>
-                           }
-                        </div>
-                     </div>
-                  </li>
-               ))}
-            </ul>
             {reloading &&
                <RctSectionLoader />
             }

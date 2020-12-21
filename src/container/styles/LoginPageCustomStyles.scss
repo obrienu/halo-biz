@@ -1,0 +1,104 @@
+@mixin mediaMd {
+    @media screen and (min-width: 501px) {
+      @content;
+    }
+  }
+  @mixin mediaLg {
+    @media screen and (min-width: 769px) {
+      @content;
+    }
+  }
+  @mixin mediaXl {
+    @media screen and (min-width: 1171px) {
+      @content;
+    }
+  }
+
+
+.login-page{
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url("../../assets/img/halogen/blue_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .container{
+        
+        min-height:80% ;
+        display: grid;
+        grid-template-columns: 1fr;
+        box-shadow: 6px 5px 19px 0px #000000;
+        
+
+
+        @include mediaMd{
+            grid-template-columns: 40% 60%;
+            padding: 5rem;
+            background-color: rgba(255, 255, 255, 0.863);
+        }
+        
+
+
+        .left-section{
+            background-color: rgb(255,255,255);
+            border-radius: 15px;
+            padding: 2rem;
+
+
+            @include mediaMd{
+                border-radius: 15px 0 0 15px;
+            }
+
+            .logo-container{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 2rem 0;
+            }
+
+            .login-logo{
+                width: 6rem;
+                height: 6rem;
+            }
+
+            .form-bottom{
+                display: flex;
+                width: 100%;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .right-section{
+            border-radius: 0 15px 15px 0;
+            background-image: url("../../assets/img/halogen/HALOBIZ\ PNG.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: none;
+
+            @include mediaMd{
+                display: block;
+            }
+
+
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 0 15px 15px 0;
+            }
+        }
+    }
+}
+
+
+.my-form-padding{
+    padding: 2rem 1rem !important;
+}
