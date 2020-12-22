@@ -24,14 +24,11 @@ import { getAppLayout } from "Helpers/helpers";
 import Notifications from './Notifications';
 import ChatSidebar from './ChatSidebar';
 import DashboardOverlay from '../DashboardOverlay/DashboardOverlay';
-import LanguageProvider from './LanguageProvider';
 import SearchForm from './SearchForm';
 import QuickLinks from './QuickLinks';
 import MobileSearchForm from './MobileSearchForm';
 import Cart from './Cart';
 
-// intl messages
-import IntlMessages from 'Util/IntlMessages';
 
 class Header extends Component {
 
@@ -114,7 +111,6 @@ class Header extends Component {
 										</Tooltip>
 									</li>
 								}
-								{!horizontalMenu && <QuickLinks />}
 								<li className="list-inline-item search-icon d-inline-block">
 									<SearchForm />
 									<IconButton mini="true" className="search-icon-btn" onClick={() => this.openMobileSearchForm()}>

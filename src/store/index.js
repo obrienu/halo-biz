@@ -4,20 +4,20 @@ import reducers from '../reducers';
 
 export function configureStore(initialState) {
 
-    // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-    // const store = createStore(
-    //     reducers,
-    //     initialState,
-    //     composeEnhancers(applyMiddleware(Thunk)),
-        
-    // );
     const store = createStore(
         reducers,
         initialState,
-        compose(applyMiddleware(Thunk)),
+        composeEnhancers(applyMiddleware(Thunk)),
         
     );
+    // const store = createStore(
+    //     reducers,
+    //     initialState,
+    //     compose(applyMiddleware(Thunk)),
+        
+    // );
 
     if (module.hot) {
         // Enable Webpack hot module replacement for reducers

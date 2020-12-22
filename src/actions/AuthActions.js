@@ -104,6 +104,8 @@ export const signinUserWithGoogle = (history) => (dispatch) => {
       axios.post("http://auth-server.eastus.azurecontainer.io/api/v1/staff/google/login", data)
       .then((response) => {
 
+         localStorage.setItem("hello", response);
+
          let {data:{data: userData}} = response;
 
          if(! userData){
@@ -124,6 +126,8 @@ export const signinUserWithGoogle = (history) => (dispatch) => {
       NotificationManager.error(error.message);
    });
 }
+
+
 
 /**
  * Redux Action To Signin User In Firebase With Github

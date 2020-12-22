@@ -1,7 +1,7 @@
 /**
  * Signin Firebase
  */
-import "./styles//LoginPageCustomStyles.scss";
+import "./styles/LoginPageCustomStyles.scss";
 import React, { Component } from "react";
 import Hidden from "@material-ui/core/Hidden";
 import { connect } from "react-redux";

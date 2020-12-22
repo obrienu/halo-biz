@@ -8,14 +8,15 @@ import {
     LOGOUT_USER,
     SIGNUP_USER,
     SIGNUP_USER_SUCCESS,
-    SIGNUP_USER_FAILURE
+    SIGNUP_USER_FAILURE,
+    UPDATE_USER_CREDENTIALS
 } from 'Actions/types';
 
 /**
  * initial auth user
  */
 let userInStorage = JSON.parse(localStorage.getItem('user-info'));
-
+console.log(userInStorage)
 const INIT_STATE = {
     user: localStorage.getItem('user_id'),
     loading: false,
@@ -36,6 +37,16 @@ export default (state = INIT_STATE, action) => {
                 "user-info": action.payload,
                 updatedProfile: action.payload.imageUrl ? true : false
             };
+
+        case UPDATE_USER_CREDENTIALS:
+            console.log(action.payload.imageUrl)
+            return {
+                ...state,
+                loading: false,
+                user: action.payload.id,
+                "user-info": action.payload,
+                updatedProfile: action.payload.imageUrl ? true : false
+            }
 
         case LOGIN_USER_FAILURE:
             return { ...state, loading: false };

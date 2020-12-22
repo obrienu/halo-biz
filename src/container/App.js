@@ -9,17 +9,9 @@ import { NotificationContainer } from 'react-notifications';
 // rct theme provider
 import RctThemeProvider from './RctThemeProvider';
 
-//Horizontal Layout
-import HorizontalLayout from './HorizontalLayout';
-
-//Agency Layout
-import AgencyLayout from './AgencyLayout';
-
 //Main App
 import RctDefaultLayout from './DefaultLayout';
 
-// boxed layout
-import RctBoxedLayout from './RctBoxedLayout';
 
 // CRM layout
 import CRMLayout from './CRMLayout';
@@ -37,7 +29,6 @@ import {
    AsyncSessionPage404Component,
    AsyncSessionPage500Component,
    AsyncTermsConditionComponent,
-   AsyncUpdateProfileComponent
 } from 'Components/AsyncComponent/AsyncComponent';
 
 //Auth0
@@ -80,9 +71,9 @@ class App extends Component {
          if (user === null) {
             return (<Redirect to={'/signin'} />);
          }else if(!updatedProfile){
-            return (<Redirect to={'/app/users/user-profile-1'} />);
+            return (<Redirect to={'/app/users/profile'} />);
          }else {
-            return (<Redirect to={'/app/dashboard/ecommerce'} />);
+            return (<Redirect to={'/app/users/profile'} />);
          }
       }
       return (
@@ -93,9 +84,7 @@ class App extends Component {
                authUser={user}
                component={RctDefaultLayout}
             />
-            <Route path="/horizontal" component={HorizontalLayout} />
-            <Route path="/agency" component={AgencyLayout} />
-            <Route path="/boxed" component={RctBoxedLayout} />
+ 
             <Route path="/dashboard" component={CRMLayout} />
             <Route path="/signin" component={AppSignIn} />
             <Route path="/signup" component={AppSignUp} />

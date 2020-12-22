@@ -1,0 +1,36 @@
+.my-modal-header{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid rgb(187, 187, 187) 0.5px;
+
+    img{
+        width: 10rem;
+        height: auto;
+        margin: 3rem 0;
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+}
+
+
+.my-modal-body{
+    padding: 2rem;
+
+    ul{
+        list-style: none;
+        margin-left: 2rem ;
+    }
+    ul li::before {
+        content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+        color: red; /* Change the color */
+        font-weight: bold; /* If you want it to be bold */
+        display: inline-block; /* Needed to add space between the bullet and the text */
+        width: 1em; /* Also needed for space (tweak if needed) */
+        margin-left: -1em; /* Also needed for space (tweak if needed) */
+      }
+}
